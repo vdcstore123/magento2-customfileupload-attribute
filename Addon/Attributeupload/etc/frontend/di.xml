@@ -1,10 +1,21 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
 	
-    <type name="Magento\ConfigurableProduct\Block\Product\View\Type\Configurable">
+    <!-- <type name="Magento\ConfigurableProduct\Block\Product\View\Type\Configurable">
         <plugin disabled="false" name="Addon_Attributeupload_Plugin_Magento_ConfigurableProduct_Block_Product_View_Type_Configurable" sortOrder="10" type="Addon\Attributeupload\Plugin\Magento\ConfigurableProduct\Block\Product\View\Type\Configurable"/>
-    </type>
-    <type name="Magento\Swatches\Block\Product\Renderer\Configurable">
+    </type> -->
+    <!-- <type name="Magento\Swatches\Block\Product\Renderer\Configurable">
         <plugin disabled="false" name="Addon_Attributeupload_Plugin_Magento_Swatches_Block_Product_Renderer_Configurable" sortOrder="10" type="Addon\Attributeupload\Plugin\Magento\Swatches\Block\Product\Renderer\Configurable"/>
-    </type>
+    </type> -->
+
+    <virtualType name="Magento\Catalog\Ui\DataProvider\Product\Form\Modifier\Pool">
+        <arguments>
+            <argument name="modifiers" xsi:type="array">
+                <item name="your_module_datasheet" xsi:type="array">
+                    <item name="class" xsi:type="string">Addon\Attributeupload\Plugin\Ui\DataProvider\Product\Form\Modifier\Datasheet</item>
+                    <item name="sortOrder" xsi:type="number">150</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
 </config>
